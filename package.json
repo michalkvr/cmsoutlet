@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build-css": "node-sass src/sass/main.scss public/css/app.css",
+    "watch-css": "node-sass --watch src/sass/main.scss public/css/app.css"
+  },
+  "dependencies": {
+    "node-sass": "^7.0.1"
+  }
+}

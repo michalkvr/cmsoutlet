@@ -1,0 +1,23 @@
+:root {
+  font-size: 62.5%;
+
+  body {
+    font-family: $font-mulish;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin: 0;
+  }
+}
+
+// @media (hover: hover) {
+//   &:hover {
+//     transform: scale(105%);
+//   }
+// }
+
+.container {
+  margin: auto;
+  max-width: 108.8rem;
+  position: relative;
+  width: 100%;
+}

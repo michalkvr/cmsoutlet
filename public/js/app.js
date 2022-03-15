@@ -6,27 +6,27 @@ fetchData('/type_of_machinery', renderTypeOfMachinery);
 fetchData('/type_of_part', renderTypeOfPart);
 fetchData('/parts', renderParts);
 
-function renderMachineryMake(items, ) {
+function renderMachineryMake(items) {
   const anchor = document.getElementById('machineryMake');
   renderMenu(items, anchor);
 }
 
-function renderTypeOfMachinery(items, ) {
+function renderTypeOfMachinery(items) {
   const anchor = document.getElementById('typeOfMachinery');
   renderMenu(items, anchor);
 }
 
-function renderTypeOfPart(items, ) {
+function renderTypeOfPart(items) {
+  console.log(items)
   const anchor = document.getElementById('typeOfParts');
   renderMenu(items, anchor);
 }
 
 function renderMenu(items, anchor) {
   items.forEach((item) => {
-    const props = item.fields;
     let el = document.createElement('option');
-    el.setAttribute('value', props.code)
-    el.innerHTML = props.name;
+    el.setAttribute('value', item.id)
+    el.innerHTML = item.fields.name;
     anchor.appendChild(el);
   });
 };
@@ -43,7 +43,11 @@ function renderParts(items, ctx) {
       <p>${props.description}</p>
       <p>${props.price}</p>
       <p>${props.in_stock}</p>
+      <p>MachineryMakeId: ${props.machinery_make[0]}</p>
+      <p>TypeOfMachineryId: ${props.type_of_machinery[0]}</p>
+      <p>TypeOfPartId: ${props.type_of_part[0]}</p>
     `;
+    console.log(props);
     anchor.appendChild(el);
   });
 };

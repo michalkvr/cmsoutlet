@@ -194,7 +194,6 @@ section {
   left: 0;
   min-height: 12rem;
   padding: 2rem 3.5rem;
-  position: fixed;
   top: 0;
   width: 100%;
   z-index: 1; }
@@ -250,7 +249,6 @@ section {
         display: inline-block; } }
 
 .filter {
-  margin-top: 23.5rem;
   padding: 2rem 4rem;
   width: 100%; }
   .filter__bar {
@@ -304,11 +302,9 @@ section {
     letter-spacing: .2rem;
     margin-top: .8rem; }
   @media only screen and (min-width: 768px) {
-    .filter {
-      margin-top: 12rem; }
-      .filter__bar {
-        flex-direction: row;
-        gap: 0; } }
+    .filter__bar {
+      flex-direction: row;
+      gap: 0; } }
 
 .parts {
   display: grid;

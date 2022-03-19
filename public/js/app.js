@@ -141,6 +141,7 @@ function applyFilter() {
 }
 
 function resetFilter() {
+  searchEl.value = '';
   machineryMakeEl.value = 'all';
   typeOfMachineryEl.value = 'all';
   typeOfPartEl.value = 'all';

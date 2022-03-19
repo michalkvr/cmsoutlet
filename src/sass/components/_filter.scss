@@ -1,10 +1,12 @@
 .filter {
-  margin-top: 12rem;
+  margin-top: 23.5rem;
   padding: 2rem 4rem;
   width: 100%;
   
   &__bar {
     display: flex;
+    flex-direction: column;
+    gap: 1rem;
     margin-bottom: 2.8rem;
     margin-top: 1rem;
   }
@@ -63,5 +65,14 @@
     font-weight: 300;
     letter-spacing: .2rem;    
     margin-top: .8rem;
+  }
+
+  @media only screen and (min-width: map-get($grid-breakpoints, 'md')) {
+    &__bar {
+      flex-direction: row;
+      gap: 0;
+    }
+
+    margin-top: 12rem;
   }
 }

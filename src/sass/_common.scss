@@ -1,12 +1,12 @@
 :root {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 
   body {
     font-family: $font-mulish;
     font-size: 1.6rem;
     line-height: 1.8;
     margin: 0;
-    // overflow: hidden;
   }
 }
 
@@ -26,6 +26,7 @@ section {
   padding: 2rem 4rem;
   position: relative;
   width: 100%;
+  max-width: 177rem;
 }
 
 .text-grey {

@@ -43,6 +43,19 @@
     position: relative;
   }
 
+  &__nav-item {
+    border-bottom: 2px solid $color-primary;
+    box-sizing: border-box;
+    padding-bottom: .3rem;
+    transition: 0.3s ease;
+
+    @media (hover: hover) {
+      &:hover {
+        border-color: white;
+      }
+    }
+  }
+
   &__search-icon {
     fill: $color-secondary;
     height: 2rem;

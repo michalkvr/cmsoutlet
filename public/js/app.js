@@ -39,7 +39,7 @@ function renderMenu(items, anchor) {
 function renderParts(items, ctx) {
   const anchor = document.getElementById('parts');
   
-  validItems = items.filter(item => Object.keys(item.fields).length === 9);
+  validItems = items.filter(item => Object.keys(item.fields).length >= 6);
   validItems.sort((a, b) => a.fields.name.localeCompare(b.fields.name));
 
   validItems.forEach((item) => {

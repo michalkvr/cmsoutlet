@@ -1,5 +1,6 @@
 const token = 'keyvt6vx1nJeHCRBX';
 const api = 'https://api.airtable.com/v0/appnxwDTMUtlFZXdI';
+const numOfResults = document.getElementById('jsNumOfResults')
 
 fetchData('/machinery_make', renderMachineryMake);
 fetchData('/type_of_machinery', renderTypeOfMachinery);
@@ -33,23 +34,37 @@ function renderMenu(items, anchor) {
 
 function renderParts(items, ctx) {
   const anchor = document.getElementById('parts');
+  items.sort((a, b) => a.fields.name.localeCompare(b.fields.name));
   items.forEach((item) => {
     const props = item.fields;
-    let el = document.createElement('div');
+    let el = document.createElement('li');
+
+    let price = '';
+    let in_stock = '';
+    if(props.in_stock == 0) {
+      in_stock = 'Ask for availability';
+    }
+    else {
+      in_stock = 'In stock: ' + props.in_stock;
+      price = props.price == 0 ? 'Ask for price' : props.price + '€';
+    }
+
+    el.classList.add('part');
     el.innerHTML = `
-      <p>${props.part_number}</p>
-      <p>${props.name}</p>
-      <img src="${props.img[0].url}" />
-      <p>${props.description}</p>
-      <p>${props.price}</p>
-      <p>${props.in_stock}</p>
-      <p>MachineryMakeId: ${props.machinery_make[0]}</p>
-      <p>TypeOfMachineryId: ${props.type_of_machinery[0]}</p>
-      <p>TypeOfPartId: ${props.type_of_part[0]}</p>
+    <div class="part__start">
+      <p class="part__name">${props.name}</p>
+      <img class="part__img" src="${props.img[0].url}" />
+      <p class="part__number">Part number: <span class="fw-bold">${props.part_number}</span></p>
+      <p class="part__desc">${props.description}</p>
+    </div>
+    <div class="part__end">
+      <p class="part__in-stock">${in_stock}</p>
+      <p class="part__price">${price}</p>
+    </div>
     `;
-    console.log(props);
     anchor.appendChild(el);
   });
+  numOfResults.innerHTML = items.length.toString();
 };
 
 function fetchData(route, callback) {

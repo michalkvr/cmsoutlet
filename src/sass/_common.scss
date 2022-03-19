@@ -23,12 +23,17 @@ section {
 .container {
   margin: auto;
   max-width: 108.8rem;
+  padding: 0 .8rem;
   position: relative;
   width: 100%;
 }
 
 .text-grey {
-  color: $color-secondary;
+  color: $color-secondary !important;
+}
+
+.fw-bold {
+  font-weight: bold;
 }
 
 .box-shadow {

@@ -41,16 +41,19 @@
     <main>
       <section class="filter">
         <div class="filter__bar">
-          <select class="filter__select" id="machineryMake">
-            <option value="all" selected>All</option>
+          <select class="filter__select" id="machineryMake" name="machineryMake">
+            <option value="all" disabled selected>Machinery make</option>
+            <option value="all">All</option>
           </select>
 
           <select class="filter__select" id="typeOfMachinery">
-            <option value="all" selected>All</option>
+            <option value="all" disabled selected>Type of machinery</option>
+            <option value="all">All</option>
           </select>
 
           <select class="filter__select" id="typeOfParts">
-            <option value="all" selected>All</option>
+            <option value="all" disabled selected>Type of part</option>
+            <option value="all">All</option>
           </select>
 
           <button class="filter__button">
@@ -62,14 +65,19 @@
         <hr class="filter__line" />
         <span class="filter__results"
           >RESULTS:
-          <span id="filter__results-number">10</span>
+          <span id="jsNumOfResults"></span>
         </span>
+      </section>
+      <section>
+        <div class="container">
+          <ul class="parts" id="parts"></ul>
+        </div>
       </section>
     </main>
 
-    <div id="parts"></div>
+  
 
-    <!-- <script src="js/app.js"></script> -->
+    <script src="js/app.js"></script>
 
     <svg style="display: none">
       <defs>

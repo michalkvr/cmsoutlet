@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Construction Machinery Spares Outlet</title>
-  <link rel="stylesheet" type="text/css" href="css/app.css" />
-  <link rel="icon" href="icon.ico" type="image/icon type" />
-</head>
-<body>
+    <title>Construction Machinery Spares Outlet</title>
+    <link rel="stylesheet" type="text/css" href="css/app.css" />
+    <link rel="icon" href="icon.ico" type="image/icon type" />
+  </head>
+  <body>
     <header class="header">
       <div class="header__start">
         <img src="img/excavator.png" class="header__logo" />
@@ -38,27 +38,38 @@
         </nav>
       </div>
     </header>
-  <div>
-    <select id="machineryMake">
-      <option value="all" selected>All</option>
-    </select>
-  </div>
+    <main>
+      <section class="filter">
+        <div class="filter__bar">
+          <select class="filter__select" id="machineryMake">
+            <option value="all" selected>All</option>
+          </select>
 
-  <div>
-    <select id="typeOfMachinery">
-      <option value="all" selected>All</option>
-    </select>
-  </div>
+          <select class="filter__select" id="typeOfMachinery">
+            <option value="all" selected>All</option>
+          </select>
 
-  <div>
-    <select id="typeOfParts">
-      <option value="all" selected>All</option>
-    </select>
-  </div>
+          <select class="filter__select" id="typeOfParts">
+            <option value="all" selected>All</option>
+          </select>
 
-  <div id="parts"></div>
+          <button class="filter__button">
+            <svg class="filter__icon">
+              <use xlink:href="#svgIcon-filter"></use>
+            </svg>
+          </button>
+        </div>
+        <hr class="filter__line" />
+        <span class="filter__results"
+          >RESULTS:
+          <span id="filter__results-number">10</span>
+        </span>
+      </section>
+    </main>
 
-  <script src="js/app.js"></script>
+    <div id="parts"></div>
+
+    <!-- <script src="js/app.js"></script> -->
 
     <svg style="display: none">
       <defs>
@@ -84,5 +95,5 @@
         </symbol>
       </defs>
     </svg>
-</body>
+  </body>
 </html>

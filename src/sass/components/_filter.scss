@@ -1,0 +1,57 @@
+.filter {
+  margin-top: 20rem;
+  padding: 2rem 4rem;
+  width: 100%;
+  
+  &__bar {
+    display: flex;
+    margin-bottom: 2.8rem;
+    margin-top: 1rem;
+  }
+
+  &__select {
+    @extend .box-shadow;
+    border: none;
+    font-family: $font-mulish;
+    height: 4rem;
+    margin-right: 3rem;
+    padding: 0 1rem;
+    width: 100%;
+  }
+
+  &__button {
+    @extend .box-shadow;
+    align-self: center;
+    background-color: $color-primary;
+    display: flex;
+    height: 4rem;
+    justify-content: center;
+    transition: 0.3s ease;
+    width: 100%;
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: .9;
+      }
+    }
+  }
+
+  &__icon {
+    fill: white;
+    height: 1.6rem;
+    margin: auto;
+    width: 1.6rem;
+  }
+
+  &__line {
+    border-top: 1px solid $color-primary;
+    border: none;
+  }
+
+  &__results {
+    color: $color-primary;
+    font-weight: 300;
+    letter-spacing: .2rem;    
+    margin-top: .8rem;
+  }
+}

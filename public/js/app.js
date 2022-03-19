@@ -18,7 +18,6 @@ function renderTypeOfMachinery(items) {
 }
 
 function renderTypeOfPart(items) {
-  console.log(items)
   const anchor = document.getElementById('typeOfParts');
   renderMenu(items, anchor);
 }
@@ -34,8 +33,11 @@ function renderMenu(items, anchor) {
 
 function renderParts(items, ctx) {
   const anchor = document.getElementById('parts');
-  items.sort((a, b) => a.fields.name.localeCompare(b.fields.name));
-  items.forEach((item) => {
+  
+  validItems = items.filter(item => Object.keys(item.fields).length === 9);
+  validItems.sort((a, b) => a.fields.name.localeCompare(b.fields.name));
+
+  validItems.forEach((item) => {
     const props = item.fields;
     let el = document.createElement('li');
 
@@ -64,7 +66,7 @@ function renderParts(items, ctx) {
     `;
     anchor.appendChild(el);
   });
-  numOfResults.innerHTML = items.length.toString();
+  numOfResults.innerHTML = validItems.length.toString();
 };
 
 function fetchData(route, callback) {

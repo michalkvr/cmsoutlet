@@ -302,7 +302,7 @@ section {
     color: #929292;
     padding: 0 1.2rem; }
   .part__end {
-    border-top: 1px solid gainsboro;
+    border-top: 1px solid #f1f1f1;
     display: flex;
     justify-content: space-between;
     margin-left: 1.2rem;

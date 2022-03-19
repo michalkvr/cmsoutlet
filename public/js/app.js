@@ -1,6 +1,11 @@
 const token = 'keyvt6vx1nJeHCRBX';
 const api = 'https://api.airtable.com/v0/appnxwDTMUtlFZXdI';
-const numOfResults = document.getElementById('jsNumOfResults')
+const numOfResults = document.getElementById('jsNumOfResults');
+const machineryMakeEl = document.getElementById('machineryMake');
+const typeOfMachineryEl = document.getElementById('typeOfMachinery');
+const typeOfPartEl = document.getElementById('typeOfPart');
+const searchEl = document.getElementById('search');
+let activeParts = [];
 
 fetchData('/machinery_make', renderMachineryMake);
 fetchData('/type_of_machinery', renderTypeOfMachinery);
@@ -18,7 +23,7 @@ function renderTypeOfMachinery(items) {
 }
 
 function renderTypeOfPart(items) {
-  const anchor = document.getElementById('typeOfParts');
+  const anchor = document.getElementById('typeOfPart');
   renderMenu(items, anchor);
 }
 
@@ -51,6 +56,11 @@ function renderParts(items, ctx) {
       price = props.price == 0 ? 'Ask for price' : props.price + '€';
     }
 
+    el.setAttribute('data-desc', props.description);
+    el.setAttribute('data-name', props.name);
+    el.setAttribute('data-machinery-make', props.machinery_make);
+    el.setAttribute('data-type-of-machinery', props.type_of_machinery);
+    el.setAttribute('data-type-of-part', props.type_of_part);
     el.classList.add('part');
     el.innerHTML = `
     <div class="part__start">
@@ -67,6 +77,7 @@ function renderParts(items, ctx) {
     anchor.appendChild(el);
   });
   numOfResults.innerHTML = validItems.length.toString();
+  activeParts = Array.from(document.getElementsByClassName('part'));
 };
 
 function fetchData(route, callback) {
@@ -85,3 +96,54 @@ function fetchData(route, callback) {
       callback(data.records);
     });
 };
+
+function search() {
+  let needle = searchEl.value;
+  setTimeout(() => {
+    if(needle !== document.getElementById('search').value)
+      return;
+    let count = 0;
+    activeParts.forEach((item) => {
+      needle = needle.toLowerCase();
+      let dataDesc = item.getAttribute('data-desc').toLowerCase();
+      let dataName = item.getAttribute('data-name').toLowerCase();
+
+      if(dataDesc.includes(needle) || dataName.includes(needle)) {
+        item.classList.remove('hidden');
+        count++;
+      }
+      else {
+        item.classList.add('hidden');
+      }
+    })
+    machineryMakeEl.value = 'all';
+    typeOfMachineryEl.value = 'all';
+    typeOfPartEl.value = 'all';
+    numOfResults.innerHTML = count;
+  }, 300, needle);
+}
+
+function applyFilter() {
+  searchEl.value = '';
+  let count = 0;
+  activeParts.forEach(item => {
+    if( (item.getAttribute('data-machinery-make').includes(machineryMakeEl.value) || machineryMakeEl.value == 'all') && 
+        (item.getAttribute('data-type-of-machinery').includes(typeOfMachineryEl.value) || typeOfMachineryEl.value == 'all') && 
+        (item.getAttribute('data-type-of-part').includes(typeOfPartEl.value) || typeOfPartEl.value == 'all')) {
+      item.classList.remove('hidden');
+      count++;
+    }
+    else {
+      item.classList.add('hidden');
+    }    
+  })
+  numOfResults.innerHTML = count;
+}
+
+function resetFilter() {
+  machineryMakeEl.value = 'all';
+  typeOfMachineryEl.value = 'all';
+  typeOfPartEl.value = 'all';
+  activeParts.forEach(item => item.classList.remove('hidden'))
+  numOfResults.innerHTML = activeParts.length;
+}

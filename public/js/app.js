@@ -56,6 +56,8 @@ function renderParts(items, ctx) {
       price = props.price == 0 ? 'Ask for price' : props.price + '€';
     }
 
+    let img = typeof props.img !== 'undefined' ? props.img[0].url : '/public/img/no-image.png';
+
     el.setAttribute('data-desc', props.description);
     el.setAttribute('data-name', props.name);
     el.setAttribute('data-machinery-make', props.machinery_make);
@@ -65,7 +67,7 @@ function renderParts(items, ctx) {
     el.innerHTML = `
     <div class="part__start">
       <p class="part__name">${props.name}</p>
-      <img class="part__img" src="${props.img[0].url}" />
+      <img class="part__img" src="${img}" alt="No image available"/>
       <p class="part__number">Part number: <span class="fw-bold">${props.part_number}</span></p>
       <p class="part__desc">${props.description}</p>
     </div>

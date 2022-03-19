@@ -163,3 +163,48 @@ button {
   max-width: 108.8rem;
   position: relative;
   width: 100%; }
+
+.text-grey {
+  color: #929292; }
+
+.header {
+  align-items: center;
+  background-color: #2B5482;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  height: 20rem;
+  justify-content: space-between;
+  left: 0;
+  padding: 0 3.5rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1; }
+  .header__logo {
+    width: 13.3rem; }
+  .header__title {
+    font-size: 4.2rem;
+    font-weight: 600;
+    line-height: 1.1; }
+  .header__start, .header__end {
+    align-items: center;
+    display: flex;
+    gap: 3rem;
+    justify-content: center; }
+  .header__search {
+    position: relative; }
+  .header__search-icon {
+    fill: #929292;
+    height: 2rem;
+    width: 2rem; }
+  .header__search-button {
+    position: absolute;
+    right: 1rem;
+    top: 1.2rem; }
+  .header__search-input {
+    padding: 1.2rem 3.8rem 1rem 1.5rem;
+    width: 24rem; }
+
+.filter {
+  margin-top: 20rem; }

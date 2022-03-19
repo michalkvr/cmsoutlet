@@ -1,0 +1,54 @@
+.header {
+  align-items: center;
+  background-color: $color-primary;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  height: 20rem;
+  justify-content: space-between;
+  left: 0;
+  padding: 0 3.5rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  &__logo {
+    width: 13.3rem;
+  }
+
+  &__title {
+    font-size: 4.2rem;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
+  &__start, &__end {
+    align-items: center;
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+  }
+
+  &__search {
+    position: relative;
+  }
+
+  &__search-icon {
+    fill: $color-secondary;
+    height: 2rem;
+    width: 2rem;
+  }
+
+  &__search-button {
+    position: absolute;
+    right: 1rem;
+    top: 1.2rem;
+  }
+
+  &__search-input {
+    font-family: $font-mulish;
+    padding: 1rem 3.8rem 1rem 1.5rem;
+    width: 24rem;
+  }
+}

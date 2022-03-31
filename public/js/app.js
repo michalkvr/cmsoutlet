@@ -52,11 +52,11 @@ function renderParts(items, ctx) {
       in_stock = 'Ask for availability';
     }
     else {
-      in_stock = 'In stock: ' + props.in_stock;
+      in_stock = 'Available';
       price = props.price == 0 ? 'Ask for price' : props.price + '€';
     }
 
-    let img = typeof props.img !== 'undefined' ? props.img[0].url : '/public/img/no-image.png';
+    let img = typeof props.img !== 'undefined' ? props.img[0].url : 'img/no-image.png';
 
     el.setAttribute('data-desc', props.description);
     el.setAttribute('data-name', props.name);
@@ -72,7 +72,7 @@ function renderParts(items, ctx) {
       <p class="part__desc">${props.description}</p>
     </div>
     <div class="part__end">
-      <p class="part__in-stock">${in_stock}</p>
+      <p class="part__in-stock ${props.in_stock > 0 ? 'part__in-stock--green' : 'part__in-stock--orange'}">${in_stock}</p>
       <p class="part__price">${price}</p>
     </div>
     `;

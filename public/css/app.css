@@ -347,11 +347,15 @@ section {
     padding: 1.2rem;
     text-align: center; }
   .part__img {
-    width: 100%;
     height: 17rem;
-    object-fit: cover; }
+    object-fit: cover;
+    width: 100%; }
   .part__price {
     font-weight: bold; }
+  .part__in-stock--green {
+    color: green; }
+  .part__in-stock--orange {
+    color: orange; }
   .part__desc {
     color: #929292;
     font-size: 1.2rem;

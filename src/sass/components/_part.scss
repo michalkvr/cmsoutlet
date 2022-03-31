@@ -33,6 +33,16 @@
     font-weight: bold;
   }
 
+  &__in-stock {
+    &--green {
+      color: green;
+    }
+
+    &--orange {
+      color: orange;
+    }
+  }
+
   &__desc {
     color: $color-secondary;
     font-size: 1.2rem;
